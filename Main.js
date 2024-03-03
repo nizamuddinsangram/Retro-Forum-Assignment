@@ -1,14 +1,15 @@
-const loadAllPosts = async () => {
+const loadAllPosts = async (categoryName) => {
   const res = await fetch(
-    "https://openapi.programming-hero.com/api/retro-forum/posts"
+    `https://openapi.programming-hero.com/api/retro-forum/posts?category=${categoryName}`
   );
   const data = await res.json();
   displayAllDataCard(data.posts);
 };
 
 const displayAllDataCard = (allCards) => {
-  console.log(allCards);
+  // console.log(allCards);
   const allCardShow = document.getElementById("all-card-show");
+  allCardShow.innerHTML = "";
   allCards.forEach((card) => {
     const div = document.createElement("div");
     div.innerHTML = `
@@ -101,5 +102,11 @@ const displayCard = (cards) => {
     cardContainer.appendChild(div);
   });
 };
-loadAllPosts();
+// search function add
+const handleSearch = () => {
+  const inputValue = document.getElementById("search-input").value;
+  loadAllPosts(inputValue);
+};
+
+loadAllPosts("");
 loadLatestPosts();
