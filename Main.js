@@ -119,12 +119,28 @@ const handleSearch = () => {
   togglerSpinner(true);
 };
 // loader data
+// const togglerSpinner = (isLoading) => {
+//   const toogeler = document.getElementById("toogeler");
+//   if (isLoading) {
+//     toogeler.classList.remove("hidden");
+//     setTimeout(() => {
+//       toogeler.classList.add("hidden");
+//     }, 5000);
+//   } else {
+//     toogeler.classList.add("hidden");
+//   }
+// };
 const togglerSpinner = (isLoading) => {
   const toogeler = document.getElementById("toogeler");
   if (isLoading) {
     toogeler.classList.remove("hidden");
+    setTimeout(() => {
+      toogeler.classList.add("hidden");
+    }, 5000);
   } else {
-    toogeler.classList.add("hidden");
+    setTimeout(() => {
+      toogeler.classList.add("hidden");
+    }, 5000);
   }
 };
 // append
