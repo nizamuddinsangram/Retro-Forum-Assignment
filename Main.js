@@ -57,6 +57,7 @@ const displayAllDataCard = (allCards) => {
     `;
     allCardShow.appendChild(div);
   });
+  togglerSpinner(false);
 };
 
 // card data load api
@@ -106,6 +107,16 @@ const displayCard = (cards) => {
 const handleSearch = () => {
   const inputValue = document.getElementById("search-input").value;
   loadAllPosts(inputValue);
+  togglerSpinner(true);
+};
+// loader data
+const togglerSpinner = (isLoading) => {
+  const toogeler = document.getElementById("toogeler");
+  if (isLoading) {
+    toogeler.classList.remove("hidden");
+  } else {
+    toogeler.classList.add("hidden");
+  }
 };
 
 loadAllPosts("");
