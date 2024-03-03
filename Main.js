@@ -11,7 +11,15 @@ const displayAllDataCard = (allCards) => {
   const allCardShow = document.getElementById("all-card-show");
   allCardShow.innerHTML = "";
   allCards.forEach((card) => {
+    console.log(card);
+
     const div = document.createElement("div");
+    let badgeColor;
+    if (card.isActive) {
+      badgeColor = "badge-success";
+    } else {
+      badgeColor = "badge-secondary";
+    }
     div.innerHTML = `
     <div class="p-10 ">
     <!-- Card -->
@@ -23,6 +31,7 @@ const displayAllDataCard = (allCards) => {
           alt="Profile Image"
           class="w-full h-auto"
         />
+        <div class="indicator-item badge ${badgeColor}"></div>
       </div>
 
       <!-- Right side: content -->
@@ -49,7 +58,7 @@ const displayAllDataCard = (allCards) => {
        <span class="text-sm text-gray-500 mr-4">${card.view_count}</span>
        <span class="text-sm text-gray-500">${card.posted_time} min</span>
      </div>
-     <button class='btn '><i class="fa-solid fa-message"></i></button>
+     <button onclick="appendTitle('${card.title}', '${card.description}', '${card.view_count}')" class='btn '><i class="fa-solid fa-message"></i></button>
        </div>
       </div>
     </div>
@@ -118,6 +127,24 @@ const togglerSpinner = (isLoading) => {
     toogeler.classList.add("hidden");
   }
 };
+// append
+let count = 0;
+const appendTitle = (title, description, viewCount) => {
+  const titleContainer = document.getElementById("appended-title");
+  const mark = document.getElementById("mark-as-read");
+  count = count + 1;
+  mark.innerText = count;
+  const div = document.createElement("div");
 
+  div.innerHTML = `
+    <h2 class="text-xl font-bold mb-2">${title}</h2>
+    <p class="text-gray-600 mb-4">${description}</p>
+    <p class="text-gray-500">View Count: ${viewCount}</p>
+  `;
+  titleContainer.appendChild(div);
+};
 loadAllPosts("");
 loadLatestPosts();
+{
+  /* <button class='btn' onclick="appendTitle('${card.title}', '${card.description}', ${card.view_count})"> */
+}
