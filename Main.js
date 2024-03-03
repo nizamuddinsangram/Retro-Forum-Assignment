@@ -3,10 +3,62 @@ const loadAllPosts = async () => {
     "https://openapi.programming-hero.com/api/retro-forum/posts"
   );
   const data = await res.json();
-  console.log(data.posts);
+  displayAllDataCard(data.posts);
 };
-loadAllPosts();
 
+const displayAllDataCard = (allCards) => {
+  console.log(allCards);
+  const allCardShow = document.getElementById("all-card-show");
+  allCards.forEach((card) => {
+    const div = document.createElement("div");
+    div.innerHTML = `
+    <div class="p-10 ">
+    <!-- Card -->
+    <div class="bg-white rounded-lg shadow-md overflow-hidden flex">
+      <!-- Left side: profile image -->
+      <div class="w-20 h-20  max-w-xs flex-shrink-0 ">
+        <img
+          src="${card.image}"
+          alt="Profile Image"
+          class="w-full h-auto"
+        />
+      </div>
+
+      <!-- Right side: content -->
+      <div class="p-4 w-9/10">
+        <!-- Category and author name row -->
+        <div class="flex items-center mb-2">
+          <span class="text-sm text-gray-500 mr-2">${card.category}</span>
+          <span class="text-sm text-gray-500">${card.author.name}</span>
+        </div>
+
+        <!-- Heading -->
+        <h2 class="text-xl font-bold mb-2">
+      
+        ${card.title}
+        </h2>
+
+        <!-- Description -->
+        <p class="text-gray-600 mb-4">${card.description}</p>
+
+        <!-- Views, comments, watch time row -->
+       <div class='flex justify-between'>
+       <div class="flex items-center">
+       <span class="text-sm text-gray-500 mr-4">${card.comment_count}</span>
+       <span class="text-sm text-gray-500 mr-4">${card.view_count}</span>
+       <span class="text-sm text-gray-500">${card.posted_time} min</span>
+     </div>
+     <button class='btn '><i class="fa-solid fa-message"></i></button>
+       </div>
+      </div>
+    </div>
+  </div>
+    `;
+    allCardShow.appendChild(div);
+  });
+};
+
+// card data load api
 const loadLatestPosts = async () => {
   const res = await fetch(
     " https://openapi.programming-hero.com/api/retro-forum/latest-posts"
@@ -49,4 +101,5 @@ const displayCard = (cards) => {
     cardContainer.appendChild(div);
   });
 };
+loadAllPosts();
 loadLatestPosts();

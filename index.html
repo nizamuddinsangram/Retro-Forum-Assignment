@@ -45,7 +45,9 @@
               tabindex="0"
               class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
-              <li><i class="fa-solid fa-house"></i></li>
+              <li>
+                <i data-tip="hello" class="tooltip fa-solid fa-house"></i>
+              </li>
               <li>
                 <i class="fa-regular fa-pen-to-square"></i>
               </li>
@@ -74,12 +76,18 @@
         <div class="navbar-end">
           <div class="hidden lg:flex">
             <ul class="menu menu-horizontal px-1">
-              <li><i class="fa-solid fa-house"></i></li>
-              <li>
+              <li data-tip="hello" class="tooltip">
+                <i class="fa-solid fa-house"></i>
+              </li>
+              <li data-tip="hello" class="tooltip">
                 <i class="fa-regular fa-pen-to-square"></i>
               </li>
-              <li><i class="fa-solid fa-user-plus"></i></li>
-              <li><i class="fa-regular fa-flag"></i></li>
+              <li data-tip="hello" class="tooltip">
+                <i class="fa-solid fa-user-plus"></i>
+              </li>
+              <li data-tip="hello" class="tooltip tooltip-bottom">
+                <i class="fa-regular fa-flag"></i>
+              </li>
             </ul>
           </div>
           <a class="btn bg-violet-500 text-white rounded-full">sign In</a>
@@ -103,7 +111,8 @@
               placeholder="Search..."
               class="w-full bg-transparent focus:outline-none"
             />
-            <svg
+            <button class="btn">search</button>
+            <!-- <svg
               class="w-6 h-6 text-gray-600"
               fill="none"
               stroke="currentColor"
@@ -115,8 +124,8 @@
                 stroke-linejoin="round"
                 stroke-width="2"
                 d="M21 21l-4.35-4.35m-8.45 1.53a7.5 7.5 0 111.06-1.06"
-              ></path>
-            </svg>
+              ></path> -->
+            <!-- </svg> -->
           </div>
         </div>
         <div class="bg-white rounded-lg p-6 text-center">
@@ -143,29 +152,14 @@
           Yes, you can run unit tests and view the results directly within the
           app. The integrated testing features allow for a streamlined .
         </p>
+        <div class="flex bg-red-100">
+          <!-- Left side -->
+          <div id="all-card-show" class="w-8/12"></div>
 
-        <div class="mx-auto flex py-12 px-4 md:px-16 lg:px-32">
-          <div class="w-3/5 bg-blue-100 pr-8">
-            <div class="rounded-lg shadow-md p-6">
-              <div class="card bg-base-100 shadow-xl">
-                <figure>
-                  <img
-                    src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-                    alt="Shoes"
-                  />
-                </figure>
-                <div class="card-body">
-                  <h2 class="card-title">Shoes!</h2>
-                  <p>If a dog chews shoes whose shoes does he choose?</p>
-                  <div class="card-actions justify-end">
-                    <button class="btn btn-primary">Buy Now</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="w-2/5">
-            <div class="bg-gray-200 rounded-lg p-6"></div>
+          <!-- Right side -->
+          <div class="w-4/12">
+            <!-- Title in center -->
+            <h2 class="text-2xl font-bold text-center">Title</h2>
           </div>
         </div>
       </div>
