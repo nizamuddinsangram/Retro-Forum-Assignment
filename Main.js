@@ -47,28 +47,28 @@ const displayAllDataCard = (allCards) => {
       <!-- Right side: content -->
       <div class="p-4 w-9/10">
         <!-- Category and author name row -->
-        <div class="flex items-center mb-2">
-          <span class="text-xl font-semibold	 mr-2">#${card.category}</span>
-          <span class="text-xl font-semibold ml-4">Author : ${card.author.name}</span>
+        <div class="flex items-center  mb-2">
+          <span class="text-lg	 lg:text-xl font-semibold mr-0	 lg:mr-2">#${card.category}</span>
+          <span class="text-lg	 lg:text-xl font-semibold ml-4">Author : ${card.author.name}</span>
         </div>
 
         <!-- Heading -->
-        <h2 class="text-2xl my-4 font-bold tracking-widest	 mb-2">
+        <h2 class="text-lg lg:text-2xl my-2 lg:my-4 font-bold tracking-widest	 mb-2">
       
         ${card.title}
         </h2>
 
         <!-- Description -->
-        <p class="text-gray-600 mt-6 text-xl tracking-wides mb-4">${card.description}</p>
+        <p class="text-gray-600 mt-3 lg:mt-6 text-xl tracking-normal	 lg:tracking-wides mb-4">${card.description}</p>
 
         <!-- Views, comments, watch time row -->
-       <div class='flex justify-between'>
+       <div class='grid   lg:flex lg:justify-between'>
        <div class="flex items-center">
        <span class="text-xl text-gray-500 mr-4 "><i class="fa-regular mx-2 fa-comment"></i>${card.comment_count}</span>
        <span class="text-xl text-gray-500 mr-4"><i class="fa-regular fa-eye mx-2"></i>${card.view_count}</span>
        <span class="text-xl text-gray-500"><i class="fa-regular fa-clock mx-2"></i>${card.posted_time} min</span>
      </div>
-     <button  onclick="appendTitle('${card.title}',  '${card.view_count}')" class='btn bg-green-500'><i class="fa-solid bg-white fa-message"></i></button>
+     <button  onclick="appendTitle('${card.title}',  '${card.view_count}')" class='btn bg-green-500 lg:mt-0 mt-4'><i class="fa-solid bg-white fa-message"></i></button>
        </div>
       </div>
     </div>
@@ -109,7 +109,7 @@ const displayCard = (cards) => {
             }
           </h2>
         </div>
-        <h1 class="text-2xl py-2 leading-normal font-extrabold">${
+        <h1 class="text-lg lg:text-lg py-2 leading-normal font-extrabold">${
           card.description
         }</h1>
         <p class="text-lg font-normal pb-2">${card.title}</p>
@@ -196,6 +196,3 @@ const appendTitle = (title, viewCount) => {
 };
 loadAllPosts("");
 loadLatestPosts();
-{
-  /* <button class='btn' onclick="appendTitle('${card.title}', '${card.description}', ${card.view_count})"> */
-}
